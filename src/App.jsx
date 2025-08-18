@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent } from '@/components/ui/card.jsx'
-import { CheckCircle, Download, Users, Shield, TrendingUp, Heart } from 'lucide-react'
+import { CheckCircle, Download, Users, Shield, TrendingUp, Heart, ArrowRight } from 'lucide-react'
 import './App.css'
 import logoSvg from './assets/Logotype.svg'
+import backgroundPattern from './assets/background-pattern.png'
+import coupleDiscussion1 from './assets/couple-discussion-1.webp'
+import coupleDiscussion2 from './assets/couple-discussion-2.webp'
 
 function App() {
   const [email, setEmail] = useState('')
@@ -16,7 +19,20 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+      {/* 3D Background Pattern */}
+      <div 
+        className="fixed inset-0 opacity-30 pointer-events-none"
+        style={{
+          backgroundImage: `url(${backgroundPattern})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
+      {/* Content overlay */}
+      <div className="relative z-10">
       {/* Navigation */}
       <nav className="border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,12 +77,12 @@ function App() {
                 Get the Script Free
               </Button>
               <Button 
-                variant="outline" 
                 size="lg" 
-                className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-4 text-lg"
-                onClick={() => document.getElementById('story').scrollIntoView({ behavior: 'smooth' })}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
+                onClick={() => window.open('https://story.bitcoinreserve.com', '_blank')}
               >
-                Read Our Story
+                Read the Full Story
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>
@@ -89,7 +105,7 @@ function App() {
             <div className="bg-slate-900/50 rounded-lg p-8 mb-8 border border-slate-700">
               <h3 className="text-2xl font-bold text-orange-400 mb-4">I had the whitelist. I had the BTC. I waited two years.</h3>
               <p className="text-slate-300 text-lg leading-relaxed">
-                And I still missed it. But that moment didn't end the mission—it cemented it.
+                And I still missed it. But that moment didn't end the mission. It cemented it.
               </p>
             </div>
 
@@ -116,7 +132,7 @@ function App() {
                 <CardContent className="p-6">
                   <h4 className="text-xl font-bold text-white mb-3">The Cost</h4>
                   <p className="text-slate-300">
-                    Floor shot to 0.3 BTC. My boys missed out on $10K-$33K in potential value. All because I got the time wrong.
+                    Floor shot to 0.3 BTC. My boys missed out on $33k+ potential value missed. All because I got the time wrong.
                   </p>
                 </CardContent>
               </Card>
@@ -125,13 +141,13 @@ function App() {
             <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-lg p-8 border border-orange-500/20">
               <h4 className="text-2xl font-bold text-white mb-4">The Cementing Moment</h4>
               <p className="text-slate-300 text-lg leading-relaxed mb-4">
-                That night didn't kill Bitcoin Reserve—it forged it. Because when I saw what I'd lost, I realised something deeper:
+                That night didn't kill Bitcoin Reserve. It forged it. Because when I saw what I'd lost, I realised something deeper:
               </p>
               <p className="text-orange-400 text-xl font-semibold mb-4">
                 No one's coming to do this for me. No one else is stacking for my sons.
               </p>
               <p className="text-slate-300 text-lg leading-relaxed">
-                Since that day, I've minted something every single day—not ordinals. Proof. Proof of intent, proof of presence, proof that I won't let one miss become my story.
+                Since that day, I've minted something every single week. Not ordinals. Proof. Proof of intent, proof of presence, proof that I won't let one miss become my story.
               </p>
             </div>
           </div>
@@ -148,6 +164,32 @@ function App() {
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
               Born from real experience, tested by real Bitcoin dads, refined through real conversations
             </p>
+          </div>
+
+          {/* Couple Discussion Images */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="relative">
+              <img 
+                src={coupleDiscussion1} 
+                alt="Couple having a financial discussion" 
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent rounded-lg"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-lg font-semibold">The Conversation That Changes Everything</p>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src={coupleDiscussion2} 
+                alt="Couple planning their financial future" 
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent rounded-lg"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-lg font-semibold">Building Trust Through Understanding</p>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -271,7 +313,7 @@ function App() {
             <Card className="bg-slate-900/50 border-slate-700">
               <CardContent className="p-6 text-center">
                 <Users className="h-12 w-12 text-orange-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">2,500+ Members</h3>
+                <h3 className="text-xl font-bold text-white mb-3">500+ Members</h3>
                 <p className="text-slate-300">
                   Bitcoin dads from Australia and around the world sharing their journey
                 </p>
@@ -328,6 +370,7 @@ function App() {
           </div>
         </div>
       </footer>
+      </div> {/* Close content overlay */}
     </div>
   )
 }
