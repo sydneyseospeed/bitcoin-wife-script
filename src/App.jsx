@@ -4,32 +4,46 @@ import { Card, CardContent } from '@/components/ui/card.jsx'
 import { CheckCircle, Download, Users, Shield, TrendingUp, Heart, ArrowRight } from 'lucide-react'
 import './App.css'
 import logoSvg from './assets/Logotype.svg'
-import backgroundPattern from './assets/background-pattern.png'
-import coupleDiscussion1 from './assets/couple-discussion-1.webp'
-import coupleDiscussion2 from './assets/couple-discussion-2.webp'
+import backgroundPattern from './assets/brand/bg-waves.png'
+import coupleDiscussion1 from './assets/couple-discussion.png'
+import coupleDiscussion2 from './assets/couple-discussion-2.jpg'
+import xIcon from './assets/brand/x.svg'
+import instagramIcon from './assets/brand/instagram.svg'
+import facebookIcon from './assets/brand/facebook.svg'
 
 function App() {
   const [email, setEmail] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle email submission
+    // Handle email submission and redirect to script PDF
     console.log('Email submitted:', email)
     // You can integrate with your email service here
+    // Then redirect to the Bitcoin Wife Script PDF
+    window.open('/Bitcoin_Wife_Script.pdf', '_blank')
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
-      {/* 3D Background Pattern */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* 3D Background Pattern - Excluding header and footer */}
       <div 
-        className="fixed inset-0 opacity-30 pointer-events-none"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `url(${backgroundPattern})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          top: '64px', // Exclude header
+          bottom: '120px' // Exclude footer
         }}
       />
+      
+      {/* Flowing Overlay Patterns */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-teal-500/20 to-blue-600/20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-gradient-to-bl from-cyan-500/15 to-teal-600/15 rounded-full blur-3xl transform translate-x-1/2" />
+        <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-tr from-blue-500/20 to-cyan-600/20 rounded-full blur-3xl transform translate-y-1/2" />
+      </div>
       
       {/* Content overlay */}
       <div className="relative z-10">
@@ -70,7 +84,7 @@ function App() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25"
                 onClick={() => document.getElementById('download').scrollIntoView({ behavior: 'smooth' })}
               >
                 <Download className="mr-2 h-5 w-5" />
@@ -78,8 +92,8 @@ function App() {
               </Button>
               <Button 
                 size="lg" 
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
-                onClick={() => window.open('https://story.bitcoinreserve.com', '_blank')}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25"
+                onClick={() => window.open('#', '_blank')}
               >
                 Read the Full Story
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -97,12 +111,12 @@ function App() {
               The Missed Mint That Built Bitcoin Reserve
             </h2>
             <p className="text-xl text-slate-300">
-              How a $33,000 mistake became the foundation for helping Bitcoin dads everywhere
+              How a $33,000+ mistake became the foundation for helping Bitcoin dads everywhere
             </p>
           </div>
           
           <div className="prose prose-lg prose-invert max-w-none">
-            <div className="bg-slate-900/50 rounded-lg p-8 mb-8 border border-slate-700">
+            <div className="bg-slate-900/50 rounded-lg p-8 mb-8 border border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <h3 className="text-2xl font-bold text-orange-400 mb-4">I had the whitelist. I had the BTC. I waited two years.</h3>
               <p className="text-slate-300 text-lg leading-relaxed">
                 And I still missed it. But that moment didn't end the mission. It cemented it.
@@ -110,8 +124,8 @@ function App() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <Card className="bg-slate-900/50 border-slate-700">
-                <CardContent className="p-6">
+              <Card className="bg-slate-900/50 border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                <CardContent className="p-6 text-center">
                   <h4 className="text-xl font-bold text-white mb-3">The Setup</h4>
                   <p className="text-slate-300">
                     I held one of only 100 golden tickets for the Taproot Wizards mint. Normal price: 0.2 BTC. My price: 0.1 BTC. I'd earned it two years earlier.
@@ -119,8 +133,8 @@ function App() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-slate-900/50 border-slate-700">
-                <CardContent className="p-6">
+              <Card className="bg-slate-900/50 border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                <CardContent className="p-6 text-center">
                   <h4 className="text-xl font-bold text-white mb-3">The Miss</h4>
                   <p className="text-slate-300">
                     The mint opened at 3:00am AEST. I thought it was 7:00pm. I went to bed early to be "fresh" and slept through the entire 8-hour window.
@@ -128,17 +142,17 @@ function App() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-slate-900/50 border-slate-700">
-                <CardContent className="p-6">
+              <Card className="bg-slate-900/50 border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                <CardContent className="p-6 text-center">
                   <h4 className="text-xl font-bold text-white mb-3">The Cost</h4>
                   <p className="text-slate-300">
-                    Floor shot to 0.3 BTC. My boys missed out on $33k+ potential value missed. All because I got the time wrong.
+                    Floor shot to 0.3 BTC. My boys missed out on $33,000+ potential value. All because I got the time wrong.
                   </p>
                 </CardContent>
               </Card>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-lg p-8 border border-orange-500/20">
+            <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-lg p-8 border border-orange-500/20 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10">
               <h4 className="text-2xl font-bold text-white mb-4">The Cementing Moment</h4>
               <p className="text-slate-300 text-lg leading-relaxed mb-4">
                 That night didn't kill Bitcoin Reserve. It forged it. Because when I saw what I'd lost, I realised something deeper:
@@ -168,7 +182,7 @@ function App() {
 
           {/* Couple Discussion Images */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="relative">
+            <div className="relative transform hover:scale-105 transition-all duration-300">
               <img 
                 src={coupleDiscussion1} 
                 alt="Couple having a financial discussion" 
@@ -179,7 +193,7 @@ function App() {
                 <p className="text-lg font-semibold">The Conversation That Changes Everything</p>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative transform hover:scale-105 transition-all duration-300">
               <img 
                 src={coupleDiscussion2} 
                 alt="Couple planning their financial future" 
@@ -193,9 +207,9 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-slate-900/50 border-slate-700 hover:border-orange-500/50 transition-colors">
-              <CardContent className="p-6">
-                <Heart className="h-12 w-12 text-orange-400 mb-4" />
+            <Card className="bg-slate-900/50 border-slate-700 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <CardContent className="p-6 text-center">
+                <Heart className="h-12 w-12 text-orange-400 mb-4 mx-auto" />
                 <h3 className="text-xl font-bold text-white mb-3">Family-First Approach</h3>
                 <p className="text-slate-300">
                   Focuses on protecting and providing for your family, not getting rich quick. Speaks to her values.
@@ -203,9 +217,9 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-700 hover:border-orange-500/50 transition-colors">
-              <CardContent className="p-6">
-                <Shield className="h-12 w-12 text-orange-400 mb-4" />
+            <Card className="bg-slate-900/50 border-slate-700 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <CardContent className="p-6 text-center">
+                <Shield className="h-12 w-12 text-orange-400 mb-4 mx-auto" />
                 <h3 className="text-xl font-bold text-white mb-3">Addresses Real Concerns</h3>
                 <p className="text-slate-300">
                   Tackles the legitimate worries about volatility, security, and complexity with honest answers.
@@ -213,12 +227,12 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-700 hover:border-orange-500/50 transition-colors">
-              <CardContent className="p-6">
-                <TrendingUp className="h-12 w-12 text-orange-400 mb-4" />
+            <Card className="bg-slate-900/50 border-slate-700 hover:border-orange-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <CardContent className="p-6 text-center">
+                <TrendingUp className="h-12 w-12 text-orange-400 mb-4 mx-auto" />
                 <h3 className="text-xl font-bold text-white mb-3">Proven Results</h3>
                 <p className="text-slate-300">
-                  Used by hundreds of Bitcoin dads to have "the conversation" successfully. Real stories, real outcomes.
+                  Used by 500+ Bitcoin dads to have "the conversation" successfully. Real stories, real outcomes.
                 </p>
               </CardContent>
             </Card>
@@ -247,7 +261,7 @@ function App() {
               "Access to our private Bitcoin Dad Vault community",
               "Bonus: The Bitcoin Dad Handbook (valued at $97)"
             ].map((item, index) => (
-              <div key={index} className="flex items-start space-x-4 bg-slate-900/50 rounded-lg p-6 border border-slate-700">
+              <div key={index} className="flex items-start space-x-4 bg-slate-900/50 rounded-lg p-6 border border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
                 <CheckCircle className="h-6 w-6 text-orange-400 mt-1 flex-shrink-0" />
                 <p className="text-slate-300 text-lg">{item}</p>
               </div>
@@ -259,13 +273,13 @@ function App() {
       {/* Download Section */}
       <section id="download" className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-8 md:p-12 border border-orange-500/30">
+          <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl p-8 md:p-12 border border-orange-500/30 transform hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10">
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Get the Bitcoin Wife Script
               </h2>
               <p className="text-xl text-slate-300 mb-8">
-                Join thousands of Bitcoin dads who've had "the conversation" successfully
+                Join 500+ Bitcoin dads who've had "the conversation" successfully
               </p>
               
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
@@ -281,7 +295,7 @@ function App() {
                   <Button 
                     type="submit"
                     size="lg" 
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 font-semibold"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 font-semibold transform hover:scale-105 transition-all duration-200"
                   >
                     <Download className="mr-2 h-5 w-5" />
                     Get Script
@@ -310,7 +324,7 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-slate-900/50 border-slate-700">
+            <Card className="bg-slate-900/50 border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <CardContent className="p-6 text-center">
                 <Users className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">500+ Members</h3>
@@ -320,7 +334,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-700">
+            <Card className="bg-slate-900/50 border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <CardContent className="p-6 text-center">
                 <Shield className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">Private & Secure</h3>
@@ -330,7 +344,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-900/50 border-slate-700">
+            <Card className="bg-slate-900/50 border-slate-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
               <CardContent className="p-6 text-center">
                 <TrendingUp className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-3">Real Results</h3>
@@ -344,33 +358,58 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-700 bg-slate-900">
+      <footer className="bg-slate-900 border-t border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img src={logoSvg} alt="Bitcoin Reserve" className="h-8 w-auto mr-4" />
-              <p className="text-slate-400">Building generational wealth, one block at a time.</p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <img src={logoSvg} alt="Bitcoin Reserve" className="h-8 w-auto mb-4" />
+              <p className="text-slate-400 text-sm mb-4">
+                Stealth wealth building for legacy. Sleep better. Stack slower.
+              </p>
+              <p className="text-slate-500 text-xs">
+                One dad, two sons, stacking every week.
+              </p>
             </div>
-            <div className="flex space-x-6">
-              <a href="https://bitcoinreserve.bio" className="text-slate-400 hover:text-orange-400 transition-colors">
-                Home
-              </a>
-              <a href="https://x.com/bitcoinreserve_" className="text-slate-400 hover:text-orange-400 transition-colors">
-                Twitter
-              </a>
-              <a href="https://www.instagram.com/bitcoinreserve_/" className="text-slate-400 hover:text-orange-400 transition-colors">
-                Instagram
-              </a>
+            
+            <div>
+              <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+              <div className="space-y-2">
+                <a href="https://bitcoinreserve.bio" className="block text-slate-400 hover:text-orange-400 text-sm transition-colors">
+                  Home
+                </a>
+                <a href="#story" className="block text-slate-400 hover:text-orange-400 text-sm transition-colors">
+                  Our Story
+                </a>
+                <a href="#community" className="block text-slate-400 hover:text-orange-400 text-sm transition-colors">
+                  Community
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-white font-semibold mb-4">Connect</h3>
+              <div className="flex space-x-4 mb-4">
+                <a href="#" className="text-slate-400 hover:text-orange-400 transition-colors">
+                  <img src={xIcon} alt="X" className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-slate-400 hover:text-orange-400 transition-colors">
+                  <img src={instagramIcon} alt="Instagram" className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-slate-400 hover:text-orange-400 transition-colors">
+                  <img src={facebookIcon} alt="Facebook" className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-slate-700 text-center">
-            <p className="text-slate-400">
-              © 2025 Bitcoin Reserve. All rights reserved. Building proof-of-work for the people you love.
+          
+          <div className="border-t border-slate-700 pt-8 mt-8">
+            <p className="text-slate-500 text-sm text-center">
+              All rights reserved, proof of work for the people you love.
             </p>
           </div>
         </div>
       </footer>
-      </div> {/* Close content overlay */}
+      </div>
     </div>
   )
 }
